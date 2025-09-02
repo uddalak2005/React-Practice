@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AddTask from "../components/AddTask";
-import TaskCard from "../components/taskCard";
+import TaskCard from "../components/TaskCard";
 
 
 function TodoList() {
