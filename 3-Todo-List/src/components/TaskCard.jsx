@@ -26,6 +26,10 @@ function TaskCard(props) {
     }
 
     function handleTaskEdit(id) {
+        if (!editValue.trim()) {
+            setIsEditing(false);
+            return;
+        }
         props.setTodo((prev) =>
             prev.map((task) =>
                 task.id === id ? { ...task, todo: editValue } : task
