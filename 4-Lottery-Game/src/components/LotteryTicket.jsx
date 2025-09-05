@@ -1,17 +1,16 @@
 import TicketNumber from "./TicketNumber"
 
-function LotteryTicket({ spinSignal, handleStop }) {
+function LotteryTicket({ ticket, spinSignal, handleStop }) {
 
     function onStop(index, value) {
         handleStop(index, value)
     }
 
     return (
-        <div id="lotteryTicket">
-
-            <TicketNumber index={0} onStop={onStop} spinSignal={spinSignal} />
-            <TicketNumber index={1} onStop={onStop} spinSignal={spinSignal} />
-            <TicketNumber index={2} onStop={onStop} spinSignal={spinSignal} />
+        <div id="lotteryTicket" className="d-flex">
+            {ticket.map((element, index) => {
+                return <TicketNumber key={index} index={index} onStop={onStop} spinSignal={spinSignal} />
+            })}
         </div>
     )
 }
