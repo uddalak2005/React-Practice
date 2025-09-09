@@ -7,11 +7,19 @@ function LotteryTicket({ ticket, spinSignal, handleStop }) {
     }
 
     return (
-        <div id="lotteryTicket" className="d-flex">
-            {ticket.map((element, index) => {
-                return <TicketNumber key={index} index={index} onStop={onStop} spinSignal={spinSignal} />
-            })}
+        <div id="lotteryTicket" className="card border border-danger border-5" style={{ width: "16rem" }}>
+            <div className="card-body d-flex flex-row justify-content-center g-3">
+                {ticket.map((element, index) => (
+                    <TicketNumber
+                        key={index}
+                        index={index}
+                        onStop={onStop}
+                        spinSignal={spinSignal}
+                    />
+                ))}
+            </div>
         </div>
+
     )
 }
 

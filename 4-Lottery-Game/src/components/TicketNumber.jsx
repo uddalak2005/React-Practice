@@ -24,7 +24,9 @@ function TicketNumber({ index, onStop, spinSignal }) {
         }
     }, [spinSignal])
     return (
-        <div>{count}</div>
+        <div className="d-flex justify-content-center align-items-center bg-danger m-1 p-3 rounded-1 border border-4 border-warning">
+            <h4 className="m-0 text-warning"><strong>{count}</strong></h4>
+        </div>
     )
 }
 
