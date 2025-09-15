@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { TodoContext } from "../context/TodoContext.jsx";
 
 function TaskCard(props) {
 
     const [isEditing, setIsEditing] = useState(false);
     const [editValue, setEditValue] = useState(props.task.todo);
+    const { setTodo } = useContext(TodoContext);
 
 
     function handletaskCompletion(id) {
         console.log("handletaskCompletion is triggered")
-        props.setTodo((prev) =>
+        setTodo((prev) =>
             prev.map((task) =>
                 task.id === id
                     ? { ...task, status: !task.status }
@@ -18,7 +20,7 @@ function TaskCard(props) {
     }
 
     function handleDelete(id) {
-        props.setTodo((prev) => prev.filter((task) => task.id !== id));
+        setTodo((prev) => prev.filter((task) => task.id !== id));
     }
 
     function handleIsEditing() {
@@ -30,7 +32,7 @@ function TaskCard(props) {
             setIsEditing(false);
             return;
         }
-        props.setTodo((prev) =>
+        setTodo((prev) =>
             prev.map((task) =>
                 task.id === id ? { ...task, todo: editValue } : task
             )

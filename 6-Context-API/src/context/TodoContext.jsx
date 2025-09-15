@@ -1,4 +1,4 @@
-import { Children, createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const TodoContext = createContext();
 
@@ -11,3 +11,5 @@ export function TodoProvider({ children }) {
         </TodoContext.Provider>
     )
 }
+
+export const useTodo = () => useContext(TodoContext);

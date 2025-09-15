@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import { TodoContext } from "../context/TodoContext";
 
 
-function addTask({ setTodo }) {
+function addTask() {
 
     const [task, setTask] = useState("");
+    const { setTodo } = useContext(TodoContext);
 
     function handleAddTask() {
         console.log("handletask is Triggered")
-        if (!task.trim()) return; //No input condition
+        if (!task.trim()) return;
         setTodo((prev) => [...prev, { id: uuidv4(), todo: task, status: false }]);
         setTask("");
     }
